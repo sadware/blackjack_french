@@ -51,7 +51,7 @@ def cartes_joueur(x):
     
     premiere_carte = as_valeur(premiere_carte)
   if deuxieme_carte == "as":
-    print("Il semble que la première carte que vous avez pioché est un as, veuillez choisir sa valeur")
+    print("Il semble que la deuxième carte que vous avez pioché est un as, veuillez choisir sa valeur")
     
     deuxieme_carte = as_valeur(deuxieme_carte)
   
