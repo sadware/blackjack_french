@@ -1,6 +1,6 @@
 import random as r
 import time
-pioche = [2,3,4,5,6,7,8,9,10,"valet","reine","roi","as"]*4
+pioche = [2,3,4,5,6,7,8,9,10,"valet","reine","roi","as"]
 global somme_joueur
 global d 
 global x
