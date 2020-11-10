@@ -1,6 +1,6 @@
 import random as r
 import time
-pioche = [2,3,4,5,6,7,8,9,10,"valet","reine","roi","as"]
+pioche = [2,3,4,5,6,7,8,9,10,"valet","reine","roi","as"]*4
 global somme_joueur
 global d 
 global x
@@ -12,6 +12,8 @@ valtc = 0
 
 
 def as_valeur(c1):
+  #Cette fonction permet de choisir une valeur pour l'as pioché
+  #Attention, elle n'empêche aucunement le joueur de passer au dessus de 21 et donc de perdre
   while 1 == 1:
     if c1 == "as":
       valeur_as = input("Quelle valeur souhaitez-vous que votre as ait ? (1 ou 11)\n> ")
@@ -39,45 +41,53 @@ def decoration():
   print("                      |__/                 ")
 
 def cartes_joueur(x):
-  premiere_carte = pioche[r.randint(0,12)]
+  premiere_carte = pioche[r.randint(0,12)] #Prends une carte dans la pioche
   deuxieme_carte = pioche[r.randint(0,12)]
+  #Quand un as est pioché, le joueur peut choisir sa valeur en tout temps, que ce soit sa 100ème ou sa 1ère carte
   print("\n==================================")
   print("==================================\n")
-  print("Les cartes de joueur " +  str(x) + " sont " + str(premiere_carte)+" et " +  str(deuxieme_carte))
-  val1 = 0
-  val2 = 0
-  if premiere_carte == "as":
+  joueur 1 sont as et 5
+Il semble que la première carte que vous avez piocprint("Les cartes de joueur " +  str(x) + " sont " + str(premiere_carte)+" et " joueur 1 sont as et 5
+Il semble que la première carte que vous avez pioc+  str(deuxieme_carte))
+  joueur 1 sont as et 5
+Il semble que la première carte que vous avez piocval1 = 0
+  joueur 1 sont as et 5
+Il semble que la première carte que vous avez piocval2 = 0
+  #Teste si la carte piochée est un as
+  if premiere_carte == "as": 
     print("Il semble que la première carte que vous avez pioché est un as, veuillez choisir sa valeur")
     
     premiere_carte = as_valeur(premiere_carte)
   if deuxieme_carte == "as":
-    print("Il semble que la deuxième carte que vous avez pioché est un as, veuillez choisir sa valeur")
+    print("Il semble que la première carte que vous avez pioché est un as, veuillez choisir sa valeur")
     
     deuxieme_carte = as_valeur(deuxieme_carte)
   
-  val1 = premiere_carte
+  val1 = premiere_carte #Assigne la valeur de l'as choisie par le joueur
   val2 = deuxieme_carte
-  
+  #Teste si la carte piochée est une tête
   if premiere_carte == "valet" or premiere_carte == "reine" or premiere_carte == "roi":
     val1 = 10
   if deuxieme_carte == "valet" or deuxieme_carte == "reine" or deuxieme_carte == "roi":
     val2 = 10
   
   
-  valt = val1 + val2
+  valt = val1 + val2 #Ajoute les valeurs des cartes piochées
+  #Teste s'il y a un blackjack automatiquement
   if valt == 21:
     print("Blackjack ! Vous gagnez 2.5x la somme misée")
-    somme_joueur[x] = 2.5*somme_joueur[x]
-
+    somme_joueur[x] = 1.25*somme_joueur[x]
+  #Permet au joueur d'avoir une idée de la valeur de ses cartes et des cartes qu'il peut piocher pour évaluer les risques
   print("\nLa valeur des cartes de joueur " + str(x) + " est : " + str(valt) + "\n")
   time.sleep(2)
-  while valt < 21:
+  while valt < 21: #Tant que la valeur des cartes du joueur est e ndessous de 21, le joueur peut piocher une carte
     piocher = input("\nJoueur " + str(x) + " souhaitez vous piocher une carte ? (O/N)\n> ").lower()
-    valn = 0
+    valn = 0 #Définis la variable "nouvelle valeur"
     if "o" in piocher:
       nouvelle_carte = pioche[r.randint(0,12)]
       valn = nouvelle_carte
       print("La carte que vous venez de tirer est : " + str(nouvelle_carte))
+      #On refait les mêmes tests qu'auparavant
       if nouvelle_carte == "valet" or nouvelle_carte == "reine" or nouvelle_carte == "roi":
         valn = 10
       elif nouvelle_carte == "as":
@@ -85,7 +95,7 @@ def cartes_joueur(x):
     
         valn = as_valeur(nouvelle_carte)
       
-        
+    #Une simple variante au cas où le 
     elif "oui" in piocher:
       nouvelle_carte = pioche[r.randint(0,12)]
       valn = nouvelle_carte
