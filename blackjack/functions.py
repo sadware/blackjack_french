@@ -46,13 +46,10 @@ def cartes_joueur(x):
   #Quand un as est pioché, le joueur peut choisir sa valeur en tout temps, que ce soit sa 100ème ou sa 1ère carte
   print("\n==================================")
   print("==================================\n")
-  joueur 1 sont as et 5
-Il semble que la première carte que vous avez piocprint("Les cartes de joueur " +  str(x) + " sont " + str(premiere_carte)+" et " joueur 1 sont as et 5
-Il semble que la première carte que vous avez pioc+  str(deuxieme_carte))
-  joueur 1 sont as et 5
-Il semble que la première carte que vous avez piocval1 = 0
-  joueur 1 sont as et 5
-Il semble que la première carte que vous avez piocval2 = 0
+  print("Les cartes de joueur " +  str(x) + " sont " + str(premiere_carte)+" et " + str(deuxieme_carte))
+
+  val1 = 0
+  val2 = 0
   #Teste si la carte piochée est un as
   if premiere_carte == "as": 
     print("Il semble que la première carte que vous avez pioché est un as, veuillez choisir sa valeur")
